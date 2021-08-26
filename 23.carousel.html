@@ -13,7 +13,7 @@
 
         .wrap {
             max-width: 800px;
-            height: 400px;
+            height: 550px;
             overflow: hidden;
             position: relative;
         }
@@ -23,7 +23,8 @@
             width: 4000px;
             list-style: none;
             padding: 0;
-            transform: translateX(-00px);
+            transform: translateX(-0px);
+            transition: .5s;
         }
 
         li.car img {
@@ -48,6 +49,10 @@
             border: 2px solid #fff;
             margin: 0 4px;
         }
+
+        /* .slider-dots li:nth-child(1) {
+            background: #FFF;
+        } */
     </style>
 </head>
 
@@ -69,6 +74,53 @@
             <li></li>
         </ul>
     </div>
+
+    <script src="./js/jquery-3.6.0.js"></script>
+
+    <script>
+        let page = 0;
+
+        let myIntervalID = '';
+
+        function startInterval() {
+            myIntervalID = setInterval(() => {
+                page++;
+
+                if (page > 4) {
+                    page = 0;
+                }
+                // console.log('hi', page);
+                $('ul.train').css('transform', `translateX(${page * -800}px)`);
+
+                $('.slider-dots li').eq(page).css('background', '#fff').siblings().css('background', 'transparent');
+            }, 3000);
+        }
+
+        $('.slider-dots li').hover(function () {
+            clearInterval(myIntervalID);
+            // 我知道目前 HOVER　的是第幾個 LI 
+            console.log('index:', $(this).index());
+            page = $(this).index();
+            // 所以我也可以知道我的火車要移動多少距離?
+            // 0 -> 0
+            // 1 -> -800
+            // 2 -> -1600
+            // 3 -> -2400
+            // 4 -> -3200
+            console.log('move x:', $(this).index() * -800);
+
+            // 選取我的火車dom，並且修改他的 css
+            $('ul.train').css('transform', `translateX(${$(this).index() * -800}px)`);
+
+            $(this).css('background', '#fff').siblings().css('background', 'transparent');
+        }, function () {
+            startInterval();
+        });
+
+        startInterval();
+        $('.slider-dots li').eq(0).css('background', '#fff');
+
+    </script>
 </body>
 
 </html>

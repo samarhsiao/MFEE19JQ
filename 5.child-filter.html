@@ -11,31 +11,42 @@
 <body>
     <div class="container">
         <div class="row">
-            <span>Hi</span>
             <div class="box">box1</div>
             <div class="box">box2</div>
             <div class="box">box3</div>
             <div class="box">box4</div>
             <div class="box">box5</div>
             <div class="box">box6</div>
-            <span>LAST </span>
+            <span>span1 </span>
             <div class="box">box7</div>
             <div class="box">box8</div>
+            <span>span2 </span>
             <div class="box">box9</div>
             <div class="box">box10</div>
+            <span>span3 </span>
             <div class="box">box11</div>
             <div class="box">box12</div>
-
         </div>
     </div>
+
+    <div class="container">
+        <div class="box">new box</div>
+    </div>
+
 
     <script src="./js/jquery-3.6.0.js"></script>
 
     <script>
-        $('.box:first-child').css('background', 'red');
+        // $('.box:first-child').css('background', 'red');
         // $('.box:last-child').css('background', 'blue');
         // $('.box:first-of-type').css('background', 'blue');
-        $('span:last-of-type').css('background', 'green');
+        // $('span:last-of-type').css('background', 'green');
+
+        // $('.box:nth-child(2)').css('background', 'green');
+
+        // $('div:nth-of-type(2)').css('background', 'green');
+
+        $('div:only-child').css('background', 'red');
     </script>
 </body>
 

@@ -14,7 +14,7 @@
     <form action="">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
                 value="" placeholder="請輸入email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
@@ -33,9 +33,21 @@
 
     <script>
         $('form').submit(function (event) {
+            // 阻止表格送出的 EVENT 
             // event.preventDefault();
             console.log('hi', event);
         });
+
+        $(':text').focus(function () {
+            console.log('focus');
+        })
+        $(':text').blur(function () {
+            console.log('blur');
+        })
+
+        $(':text').change(function () {
+            console.log('changed');
+        })
     </script>
 </body>
 

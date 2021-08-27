@@ -46,7 +46,6 @@
 
         $('#city').change(function () {
             console.log('#city changed');
-
             // console.log('cityVal:', $(this).val());
 
             // 1.我要知道使用者選擇的是哪個城市?  => 我也可以拿到正確的區域名稱陣列
@@ -63,14 +62,12 @@
             // })
             // 3.那我能不能在迴圈裏面，想辦法取得不同的城市個別的區域名稱，依次改動。
 
-
             $('#district option').each(function (index, element) {
                 // console.log('text:', $(this).text());
                 // console.log('option val:', $(this).val());
                 // console.log('index:', index);
                 // console.log('element:', element);
                 // console.log('distNameArray', distNameArray[index]);
-
                 $(this).text(`${distNameArray[index]}區`);
             })
 

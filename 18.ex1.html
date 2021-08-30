@@ -6,10 +6,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <table class="table table-bordered mt-5">
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Elon Musk</td>
+                    <td>0912345678</td>
+                    <td>elonmusk@gmail.com</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Elon Musk</td>
+                    <td>0912345678</td>
+                    <td>elonmusk@gmail.com</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Elon Musk</td>
+                    <td>0912345678</td>
+                    <td>elonmusk@gmail.com</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Elon Musk</td>
+                    <td>0912345678</td>
+                    <td>elonmusk@gmail.com</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        // 方法一
+        $('input[type="checkbox"]').click(function () {
+            console.log('hi', $(this).attr('checked'));
+            console.log('hi', $(this).prop('checked'));
+
+            if ($(this).prop('checked')) {
+                $(this).parent().parent().css('background', 'lightblue');
+            }
+            else {
+                $(this).parent().parent().css('background', 'transparent');
+            }
+
+        });
+
+        // 方法二
+        // $('input[type="checkbox"]').click(function () {
+        //     // console.log('hi');
+        //     $('tr').css('background', 'transparent');
+        //     $('input:checked').closest('tr').css('background', 'lightblue');
+        // });
+    </script>
 </body>
 
 </html>

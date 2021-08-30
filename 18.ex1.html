@@ -33,7 +33,7 @@
                     <td>elonmusk@gmail.com</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" checked></td>
                     <td>Elon Musk</td>
                     <td>0912345678</td>
                     <td>elonmusk@gmail.com</td>
@@ -41,6 +41,8 @@
             </table>
         </div>
     </div>
+
+    <button>Click</button>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -66,6 +68,15 @@
         //     $('tr').css('background', 'transparent');
         //     $('input:checked').closest('tr').css('background', 'lightblue');
         // });
+    </script>
+
+    <script>
+        //請問 .prop('checked', true) 和 .prop('checked', 'checked')  兩者是一樣的嗎?
+        $('button').click(function () {
+            $('input[type="checkbox"]').eq(0).prop('checked', true);
+            console.log('prop:', $('input[type="checkbox"]').eq(0).prop('checked'));
+            console.log('attr:', $('input[type="checkbox"]').eq(3).attr('checked'));
+        });
     </script>
 </body>
 

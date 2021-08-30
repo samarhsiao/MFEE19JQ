@@ -10,6 +10,8 @@
         body {
             margin: 0;
             height: 300vh;
+            transition: 1s;
+            overflow-x: hidden;
         }
 
         .wrap {
@@ -23,7 +25,17 @@
         .box {
             background-color: pink;
             height: 50px;
-            width: 100%;
+            width: 0%;
+            transition: .2s;
+        }
+
+        .img-wrap {
+            position: absolute;
+            top: 350px;
+            left: 40%;
+            transition: 1s;
+            opacity: 0;
+            transform: translateX(320px);
         }
     </style>
 </head>
@@ -33,21 +45,45 @@
         <div class="box"></div>
     </div>
 
+    <div class="img-wrap">
+        <img src="./imgs/3.png" alt="">
+    </div>
+
     <script src="./js/jquery-3.6.0.js"></script>
 
     <script>
-        console.log('body height', $('body').height());
+
+        $(window).resize(function () {
+            changeBoxWidth();
+        });
 
         $(window).scroll(function () {
+            changeBoxWidth();
+        });
+
+        function changeBoxWidth() {
             // 1.使用者滾到哪裡?數字是多少?
-
+            const scrollTop = $(window).scrollTop()
             // 2.網頁內容全部長度多長?
-
+            const bodyHeight = $('body').height();
 
             // 3.計算出目前閱讀的百分比 (誰是分母?誰是分子?)
+            const windowHeight = $(window).height();
+            const percent = scrollTop / (bodyHeight - windowHeight) * 100;
 
             // 4.最後，把這個百分比，給 .box 的 CSS 寬度。
-        })
+            $('.box').css('width', `${percent}%`);
+
+            if (percent > 20) {
+                $('body').css('background', 'orange');
+                $('.img-wrap').css('transform', 'translateX(0px)').css('opacity', '1');
+            }
+            else {
+                $('body').css('background', 'transparent');
+                $('.img-wrap').css('transform', 'translateX(320px)').css('opacity', '0');
+            }
+
+        };
 
     </script>
 </body>
